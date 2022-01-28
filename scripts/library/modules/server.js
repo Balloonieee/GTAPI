@@ -5,9 +5,10 @@ class serverManager {
   constructor() {
     //servervarivaleshere
   }
-  
-  
-  restart(message) {}
+   
+  restart(restartMessage) {
+    
+  }
   
   database() {
     return new database()
@@ -21,14 +22,14 @@ class serverManager {
     return type == 'object' ? [...World.getPlayers(PlayerQueryOptions ?? null).Map(mP => new player(mP))] : [...World.getPlayers().Map(mP => { name: mP?.name, nameTag: mP?.nameTag })]
   }
   
-  getDimension(dimension) {
+  getDimension(dimensionId) {
     const dimensions = ['overworld','the end','nether','all']
-    if(!dimensions.includes(dimension)) 
-      throw new Error(`${dimension} is not a valid dimension`)
+    if(dimensionId && !dimensions.includes(dimensionId)) 
+      throw new Error(`${dimensionId} is not a valid dimension`)
     
-    return dimension == 'all' ? {
+    return dimensionId == 'all' ? {
       overworld: new Dimension('overworld'), nether: new Dimension('nether'), end: new Dimension('the end')
-    } : World.getDimension('dimension')
+    } : World.getDimension(dimensionId ?? 'all')
 }
 
 export const server = new serverManager()
