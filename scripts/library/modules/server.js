@@ -18,9 +18,17 @@ class serverManager {
   
   factions() {}
   
+  parties() {}
+  
   scoreboard() {}
   
   tags() {}
+  
+  chat() {
+    return new chat()
+  }
+  
+  auctionHouse() {}
   
   getPlayers({ dataType, PlayerQueryOptions }) {
     const validTypes = ['list', 'object']
