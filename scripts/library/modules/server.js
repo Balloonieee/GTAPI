@@ -7,7 +7,7 @@ class serverManager {
   }
    
   restart(restartMessage) {
-    this.getDimension('all').kickPlayers({ reason: 'Server Restarted', administartor: 'server' })
+    this.getDimension('all').kickPlayers({ reason: 'Server Restarting...', administartor: 'server' })
   }
   
   database() {
