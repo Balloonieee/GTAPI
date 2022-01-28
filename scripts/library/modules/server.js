@@ -3,22 +3,22 @@ import { world } from 'mojang-minecraft' // update in beta
 
 class serverManager {
   constructor() {
+    //servervarivaleshere
   }
   
-  init() {
-    
-  }
   
   restart(message) {}
   
-  database() {}
+  database() {
+    return new database()
+  }
   
-  getPlayers({ type, PlayerQueryOptions }) {
+  getPlayers({ dataType, PlayerQueryOptions }) {
     const validTypes = ['list', 'object']
-    if(!validTypes.includes(type)) 
-      throw new Error(`${type} is not a valid type`)
+    if(!validTypes.includes(dataType)) 
+      throw new Error(`${dataType} is not a valid dataType`)
     
-    return type == 'object' ? [...World.getPlayers().Map(mP => new player(mP))] : [...World.getPlayers().Map(mP => { name: mP?.name, nameTag: mP?.nameTag })]
+    return type == 'object' ? [...World.getPlayers(PlayerQueryOptions ?? null).Map(mP => new player(mP))] : [...World.getPlayers().Map(mP => { name: mP?.name, nameTag: mP?.nameTag })]
   }
   
   getDimension(dimension) {
