@@ -1,5 +1,6 @@
 import { World, Commands } from 'mojang-minecraft' // update in beta
 import { player } from './player.js'
+
 class serverManager {
   constructor() {
   }
