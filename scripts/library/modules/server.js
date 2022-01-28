@@ -3,32 +3,23 @@ import { world } from 'mojang-minecraft' // update in beta
 
 class serverManager {
   constructor() {
-    //servervarivaleshere
+    this.events = events
+    this.claims = claims
+    this.factions = factions
+    this.parties = parties
+    this.scoreboard = scoreboard
+    this.tags = tags
+    this.chat = chat
+    this.slashCommands = commands.slashCommands
+    this.auctionHouse = auctionHouse
+    this.database = database
+    this.ranks = ranks
+    this.formUI = formUI
   }
    
   restart(restartMessage) {
     this.getDimension('all').kickPlayers({ reason: 'Server Restarting...', administartor: 'server' })
   }
-  
-  database() {
-    return new database()
-  }
-  
-  claims() {}
-  
-  factions() {}
-  
-  parties() {}
-  
-  scoreboard() {}
-  
-  tags() {}
-  
-  chat() {
-    return new chat()
-  }
-  
-  auctionHouse() {}
   
   getPlayers({ dataType, PlayerQueryOptions }) {
     const validTypes = ['list', 'object']
