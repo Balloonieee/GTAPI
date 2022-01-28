@@ -43,7 +43,7 @@ class serverManager {
     
     return dimensionId == 'all' ? {
       overworld: new Dimension('overworld'), nether: new Dimension('nether'), end: new Dimension('the end')
-    } : World.getDimension(dimensionId ?? 'all')
+    } : world.getDimension(dimensionId ?? 'all')
 }
 
 export const server = new serverManager()
