@@ -6,10 +6,18 @@ export class dimension {
     if(!validDimensions.includes(dimensionId)) 
       throw new Error(`${dimensionId} is not a valid dimension`)
     
-    const Mdimension = dimensionId == 'all' ? validDimensions.Map(dimensionId => {
+    this.dimensionId = dimensionId
+    this.Mdimension = dimensionId == 'all' ? validDimensions.Map(dimensionId => {
       if(dimensionId == 'all') return
       return world.getDimension(dimensionId)
     }) : [world.getDimension(dimensionId)] 
   }
   
+  runCommand(command) {
+    
+  }
+  
+  runCommands() {
+    
+  }
 }
