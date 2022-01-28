@@ -15,6 +15,7 @@ class serverManager {
     this.database = database
     this.ranks = ranks
     this.formUI = formUI
+    this.scheduling = scheduling
   }
    
   restart(restartMessage) {
