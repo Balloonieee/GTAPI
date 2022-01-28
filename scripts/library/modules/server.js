@@ -14,6 +14,14 @@ class serverManager {
     return new database()
   }
   
+  claims() {}
+  
+  factions() {}
+  
+  scoreboard() {}
+  
+  tags() {}
+  
   getPlayers({ dataType, PlayerQueryOptions }) {
     const validTypes = ['list', 'object']
     if(!validTypes.includes(dataType)) 
