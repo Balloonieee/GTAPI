@@ -3,6 +3,8 @@ import { world } from 'mojang-minecraft' // update in beta
 
 class serverManager {
   constructor() {
+    this.Mworld = world
+    
     this.events = events
     this.claims = claims
     this.factions = factions
@@ -28,7 +30,7 @@ class serverManager {
     if(!validTypes.includes(dataType)) 
       throw new Error(`${dataType} is not a valid dataType`)
     
-    return status == 'offline' ? this.database.table('players').all().map(player => player.value) : dataType == 'object' ? [...world.getPlayers(PlayerQueryOptions ?? null).Map(mP => new player(mP))] : [...world.getPlayers().Map(mP => { name: mP?.name, nameTag: mP?.nameTag })]
+    return status == 'offline' ? this.database.table('players').all().map(player => player.value) : dataType == 'object' ? [...this.Mworld.getPlayers(PlayerQueryOptions ?? null).Map(mP => new player(mP))] : [...this.Mworld.getPlayers().Map(mP => { name: mP?.name, nameTag: mP?.nameTag })]
     //return type == 'object' ? [...World.getPlayers(PlayerQueryOptions ?? null).Map(mP => new player(mP))] : [...World.getPlayers().Map(mP => { name: mP?.name, nameTag: mP?.nameTag })]
   }
   
@@ -43,7 +45,7 @@ class serverManager {
     
     return dimensionId == 'all' ? {
       overworld: new Dimension('overworld'), nether: new Dimension('nether'), end: new Dimension('the end')
-    } : world.getDimension(dimensionId ?? 'all')
+    } : new Dimension(dimensionId ?? 'all')
 }
 
 export const server = new serverManager()
