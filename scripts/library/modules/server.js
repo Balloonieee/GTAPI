@@ -28,7 +28,7 @@ class serverManager {
     if(!validTypes.includes(dataType)) 
       throw new Error(`${dataType} is not a valid dataType`)
     
-    return status == 'offline' ? this.database.table('players').all().map(player => player.value) : dataType == 'object' ? [...World.getPlayers(PlayerQueryOptions ?? null).Map(mP => new player(mP))] : [...World.getPlayers().Map(mP => { name: mP?.name, nameTag: mP?.nameTag })]
+    return status == 'offline' ? this.database.table('players').all().map(player => player.value) : dataType == 'object' ? [...world.getPlayers(PlayerQueryOptions ?? null).Map(mP => new player(mP))] : [...world.getPlayers().Map(mP => { name: mP?.name, nameTag: mP?.nameTag })]
     //return type == 'object' ? [...World.getPlayers(PlayerQueryOptions ?? null).Map(mP => new player(mP))] : [...World.getPlayers().Map(mP => { name: mP?.name, nameTag: mP?.nameTag })]
   }
   
