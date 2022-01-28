@@ -7,7 +7,7 @@ class serverManager {
   }
    
   restart(restartMessage) {
-    
+    this.getDimension('all').kickPlayers()
   }
   
   database() {
