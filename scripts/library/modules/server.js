@@ -23,7 +23,7 @@ class serverManager {
     this.getDimension('all').kickPlayers({ reason: 'Server Restarting...', administartor: 'server' })
   }
   
-  getPlayers({ dataType, status, PlayerQueryOptions }) {
+  getPlayers({ status, dataType, PlayerQueryOptions }) {
     const validTypes = ['list', 'object']
     if(!validTypes.includes(dataType)) 
       throw new Error(`${dataType} is not a valid dataType`)
@@ -33,7 +33,7 @@ class serverManager {
   }
   
   getPlayer({ username, status }) {
-    return this.getPlayers({ dataType: 'object', status }).find(player => player.nameTag == username || player.name == username)
+    return this.getPlayers({ status, dataType: 'object' }).find(player => player.nameTag == username || player.name == username)
   }
   
   getDimension(dimensionId) {
