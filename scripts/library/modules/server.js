@@ -1,5 +1,5 @@
-import { World, Commands } from 'mojang-minecraft' // update in beta
-import { player } from './player.js'
+import { world } from 'mojang-minecraft' // update in beta
+//import other modules
 
 class serverManager {
   constructor() {
@@ -11,14 +11,14 @@ class serverManager {
   
   restart(message) {}
   
-  chat(message) {}
+  database() {}
   
-  getPlayers(type) {
+  getPlayers({ type, PlayerQueryOptions }) {
     const validTypes = ['list', 'object']
     if(!validTypes.includes(type)) 
       throw new Error(`${type} is not a valid type`)
     
-    return type == 'object' ? World.getPlayers().Map(mP => new player(mP)) : World.getPlayers().Map(mP => { name: mP?.name, nameTag: mP?.nameTag })
+    return type == 'object' ? [...World.getPlayers().Map(mP => new player(mP))] : [...World.getPlayers().Map(mP => { name: mP?.name, nameTag: mP?.nameTag })]
   }
   
   getDimension(dimension) {
