@@ -8,7 +8,11 @@ class serverManager {
   init() {
     
   }
-
+  
+  restart(message) {}
+  
+  chat(message) {}
+  
   getPlayers(type) {
     const validTypes = ['list', 'object']
     if(!validTypes.includes(type)) 
