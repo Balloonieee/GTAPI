@@ -7,10 +7,10 @@ export class dimension {
       throw new Error(`${dimensionId} is not a valid dimension`)
     
     this.dimensionId = dimensionId
-    this.Mdimension = dimensionId == 'all' ? validDimensions.Map(dimensionId => {
+    this.Mdimension = dimensionId == 'all' ? validDimensions.Map(dimension => {
       if(dimensionId == 'all') return
-      return world.getDimension(dimensionId)
-    }) : world.getDimension(dimensionId)
+      return world.getDimension(dimension)
+    }) : world.getDimension(dimension)
   }
   
   runCommand(cmd) { //runCommand and runCommands in 1
