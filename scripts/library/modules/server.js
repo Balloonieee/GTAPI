@@ -1,4 +1,4 @@
-import { world } from 'mojang-minecraft' // update in beta
+import { world } from 'mojang-minecraft'
 //import other modules
 
 class serverManager {
