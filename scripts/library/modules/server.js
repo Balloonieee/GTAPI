@@ -15,6 +15,7 @@ class serverManager {
     this.auctionHouse = auctionHouse
     this.database = database
     this.ranks = ranks
+    this.leaderboards = leaderboards
     this.formUI = formUI
     this.scheduling = scheduling
     this.warps = warps
