@@ -16,18 +16,32 @@ export class dimension {
   runCommand(cmd) {
     const commands = typeof cmd == 'array' ? cmd : [cmd]
     let commandsResults = commands.Map(command => {
-      try {
-        return this.dimensionId == 'all' ? this.Mdimension.Map(dimension => {
+      if(this.dimensionId == 'all') {
+        return this.Mdimension.Map(dimension => {
+          try {
+            return { dimensionId: dimension.id, error: false, ...dimension.runCommand(command) }
+          } catch(e) {
+            return {
+              error: true,
+              statusMessage: e.message,
+              dimension: dimension.id
+            }
+          }
+        })
+        
+        try {
           return { dimensionId: dimension.id, error: false, ...dimension.runCommand(command) }
-        }) : { dimensionId: this.Mdimension.id, error: false, ...this.Mdimension.runCommand(command) }
-      } catch(e) {
-        return {
-          error: true,
-          statusMessage: e.message
+        } catch(e) {
+          } catch(e) {
+            return {
+              error: true,
+              statusMessage: e.message,
+              dimension: dimension.id
+            }
+          }
         }
       }
-    })
-    
+     
     return this.dimensionId == 'all' ? commandsResult : commandsResult[0]
   }
 }
