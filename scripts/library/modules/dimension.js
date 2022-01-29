@@ -13,7 +13,7 @@ export class dimension {
     }) : world.getDimension(dimensionId)
   }
   
-  runCommand(cmd) {
+  runCommand(cmd) { //runCommand and runCommands in 1
     const commands = typeof cmd == 'array' ? cmd : [cmd]
     let commandsResults = commands.Map(command => {
       
