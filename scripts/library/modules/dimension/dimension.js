@@ -1,4 +1,4 @@
-import { world } from 'mojang-minecraft'
+import { world, EntityQueryOptions } from 'mojang-minecraft'
 
 export class dimension {
   constructor(dimensionId) {
@@ -46,13 +46,26 @@ export class dimension {
     return this.dimensionId == 'all' ? commandsResult : commandsResult[0]
   }
   
-  getEntitiesAtBlock() {}
+  getEntitiesAtBlock(block) {
+    return dimension.getEntitiesAtBlockLocation(block)
+  }
   
-  getPlayers() {}
+  getPlayers(query) {
+    return dimension.getPlayers(query)
+  }
   
-  getPlayer() {}
+  getPlayer(player) {
+    return dimension.getPlayers(new EntityQueryOptions().name == player)
+  }
   
-  kickAllPlayers() {}
+  kickAllPlayers() {
+    dimension.getPlayers().forEach((player) => {
+       player.kick()
+    })
+  }
   
-  killAllPlayers() {}
+  killAllPlayers() {
+    dimension.getPlayers().forEach((player) => {
+       player.kill()
+    })}
 }
