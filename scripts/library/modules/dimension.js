@@ -40,7 +40,18 @@ export class dimension {
           }
         }  
       }
-      
-      return this.dimensionId == 'all' ? commandsResult : commandsResult[0]
+    })
+    
+    return this.dimensionId == 'all' ? commandsResult : commandsResult[0]
   }
+  
+  getEntitiesAtBlock() {}
+  
+  getPlayers() {}
+  
+  getPlayer() {}
+  
+  kickAll() {}
+  
+  killAll() {}
 }
