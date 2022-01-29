@@ -1,1 +1,2 @@
-//import and export everything
+import * as modules from './modules/import.js'
+export modules
