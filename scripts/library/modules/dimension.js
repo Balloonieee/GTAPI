@@ -28,6 +28,6 @@ export class dimension {
       }
     })
     
-    return typeof this.dimensionId == 'all' ? commandsResult : commandsResult[0]
+    return this.dimensionId == 'all' ? commandsResult : commandsResult[0]
   }
 }
