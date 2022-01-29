@@ -10,15 +10,24 @@ export class dimension {
     this.Mdimension = dimensionId == 'all' ? validDimensions.Map(dimensionId => {
       if(dimensionId == 'all') return
       return world.getDimension(dimensionId)
-    }) : [world.getDimension(dimensionId)] 
+    }) : world.getDimension(dimensionId)
   }
   
-  runCommand(commandstring) {
+  runCommand(cmd) {
+    const commands = typeof cmd == 'array' ? cmd : [cmd]
+    let commandsResults = commands.Map(command => {
+      try {
+        return this.dimensionId == 'all' ? this.Mdimension.Map(dimension => {
+          return { dimensionId: dimension.id, error: false, ...dimension.runCommand(command) }
+        }) : { dimensionId: this.Mdimension.id, error: false, ...this.Mdimension.runCommand(command) }
+      } catch(e) {
+        return {
+          error: true,
+          statusMessage: e.message
+        }
+      }
+    })
     
-  }
-  //maybe ill make it just 1 method for run cmd
-  
-  runCommands(commands) {
-    
+    return typeof this.dimensionId == 'all' ? commandsResult : commandsResult[0]
   }
 }
