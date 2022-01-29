@@ -22,7 +22,7 @@ class serverManager {
   }
    
   restart(restartMessage) {
-    this.getDimension('all').kickPlayers({ reason: 'Server Restarting...', administartor: 'server' })
+    this.getDimension('all').kickAllPlayers({ reason: 'Server Restarting...', administartor: 'server' })
   }
   
   getPlayers({ status, dataType, PlayerQueryOptions }) {
