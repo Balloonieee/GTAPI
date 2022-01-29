@@ -13,7 +13,7 @@ export class dimension {
     }) : [world.getDimension(dimensionId)] 
   }
   
-  runCommand(command) {
+  runCommand(commandstring) {
     
   }
   //maybe ill make it just 1 method for run cmd
