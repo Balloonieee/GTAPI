@@ -29,6 +29,7 @@ export class dimension {
             }
           }
         })
+      }
         
         try {
           return { dimensionId: dimension.id, error: false, ...dimension.runCommand(command) }
@@ -38,8 +39,7 @@ export class dimension {
             statusMessage: e.message,
             dimension: dimension.id
           }
-        }  
-      }
+        }
     })
     
     return this.dimensionId == 'all' ? commandsResult : commandsResult[0]
