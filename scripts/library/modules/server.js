@@ -4,7 +4,6 @@ import { world } from 'mojang-minecraft'
 class serverManager {
   constructor() {
     this.Mworld = world
-    
     this.events = events
     this.claims = claims
     this.factions = factions
