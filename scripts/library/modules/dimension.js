@@ -16,8 +16,9 @@ export class dimension {
   runCommand(command) {
     
   }
+  //maybe ill make it just 1 method for run cmd
   
-  runCommands() {
+  runCommands(commands) {
     
   }
 }
