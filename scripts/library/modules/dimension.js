@@ -16,6 +16,7 @@ export class dimension {
   runCommand(cmd) {
     const commands = typeof cmd == 'array' ? cmd : [cmd]
     let commandsResults = commands.Map(command => {
+      
       if(this.dimensionId == 'all') {
         return this.Mdimension.Map(dimension => {
           try {
@@ -33,10 +34,9 @@ export class dimension {
           return { dimensionId: dimension.id, error: false, ...dimension.runCommand(command) }
         } catch(e) {
           return {
-              error: true,
-              statusMessage: e.message,
-              dimension: dimension.id
-            }
+            error: true,
+            statusMessage: e.message,
+            dimension: dimension.id
           }
         }
      
