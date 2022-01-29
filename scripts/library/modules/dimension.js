@@ -8,7 +8,7 @@ export class dimension {
     
     this.dimensionId = dimensionId
     this.Mdimension = dimensionId == 'all' ? validDimensions.Map(dimension => {
-      if(dimensionId == 'all') return
+      if(dimension == 'all') return
       return world.getDimension(dimension)
     }) : world.getDimension(dimension)
   }
