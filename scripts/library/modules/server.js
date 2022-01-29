@@ -43,9 +43,7 @@ class serverManager {
     if(dimensionId && !dimensions.includes(dimensionId)) 
       throw new Error(`${dimensionId} is not a valid dimension`)
     
-    return dimensionId == 'all' ? {
-      overworld: new Dimension('overworld'), nether: new Dimension('nether'), end: new Dimension('the end')
-    } : new Dimension(dimensionId ?? 'all')
+    return new Dimension(dimensionId ?? 'all')
 }
 
 export const server = new serverManager()
