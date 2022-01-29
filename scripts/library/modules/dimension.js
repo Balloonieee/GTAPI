@@ -38,8 +38,9 @@ export class dimension {
             statusMessage: e.message,
             dimension: dimension.id
           }
-        }
-     
-    return this.dimensionId == 'all' ? commandsResult : commandsResult[0]
+        }  
+      }
+      
+      return this.dimensionId == 'all' ? commandsResult : commandsResult[0]
   }
 }
