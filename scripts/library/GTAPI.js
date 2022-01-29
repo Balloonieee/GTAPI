@@ -1,2 +1,6 @@
 import * as modules from './modules/import.js'
-export { modules }
+for(const module in modules) {
+  export { module }
+}
+
+//export { modules }
