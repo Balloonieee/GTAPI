@@ -12,7 +12,7 @@ class serverManager {
     this.scoreboard = scoreboard
     this.tags = tags
     this.chat = chat
-    this.slashCommands = commands.slashCommands
+    this.slashCommands = commands.slashCommands //edit this to just slashcmd when module added also cuz we wont have commands.run it will be dim.runcmd
     this.auctionHouse = auctionHouse
     this.database = database
     this.ranks = ranks
