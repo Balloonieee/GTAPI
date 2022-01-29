@@ -51,7 +51,7 @@ export class dimension {
   
   getPlayer() {}
   
-  kickAll() {}
+  kickAllPlayers() {}
   
-  killAll() {}
+  killAllPlayers() {}
 }
