@@ -1,1 +1,1 @@
-export * from './uuidv4Generator'
+export * from './uuidv4Generator.js'
