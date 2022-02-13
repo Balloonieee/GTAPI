@@ -1,4 +1,4 @@
-export * from './tick.js'
+export * from './Tick.js'
 export * from './OnJoin.js'
 export * from './OnLoad.js'
 export * from './BeforeItemUseOn.js'
