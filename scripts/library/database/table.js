@@ -21,7 +21,7 @@ function binaryToText(binary) {
 }
 
 
-class Table {
+export class Table {
 	constructor(table) {
 		try {
 			runCommand('scoreboard objectives add database dummy')
@@ -212,4 +212,4 @@ class Table {
 	}
 }
 
-export const database = new Database()
+
