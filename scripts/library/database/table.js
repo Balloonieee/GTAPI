@@ -21,7 +21,7 @@ function binaryToText(binary) {
 }
 
 
-export class Table {
+export class table {
 	constructor(table) {
 		try {
 			runCommand('scoreboard objectives add database dummy')
