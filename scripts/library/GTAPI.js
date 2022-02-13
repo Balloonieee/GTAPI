@@ -12,3 +12,6 @@ export { EventEmitter, EventManager }
 
 import { uuidv4 } from './uuidv4/index.js'
 export { uuidv4 }
+
+import { database } from './database/index.js'
+export { database }
