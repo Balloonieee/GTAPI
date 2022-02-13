@@ -6,3 +6,6 @@ export { world }
 
 import { player, PlayerManager } from './player/index.js'
 export { player, PlayerManager }
+
+import { uuidv4 } from './uuidv4/index.js'
+export { uuidv4 }
