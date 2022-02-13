@@ -20,12 +20,6 @@ function binaryToText(binary) {
 	}).join('');
 }
 
-class Database {
-	constructor() {}
-	table(table) {
-		return new Table(table)
-	}
-}
 
 class Table {
 	constructor(table) {
