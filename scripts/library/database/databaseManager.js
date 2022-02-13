@@ -5,3 +5,5 @@ class Database {
 		return new Table(table)
 	}
 }
+
+export const database = new Database()
