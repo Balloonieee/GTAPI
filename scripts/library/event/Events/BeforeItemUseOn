@@ -1,6 +1,6 @@
 import { world } from 'mojang-minecraft'
 
-export class BeforeItemUseEvent {
+export class BeforeItemUseOnEvent {
     constructor(EventManager) {
         this.EventManager = EventManager
         this.eventName = 'beforeItemUseOn'
