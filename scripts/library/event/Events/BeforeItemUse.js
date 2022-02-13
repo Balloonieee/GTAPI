@@ -15,10 +15,6 @@ export class BeforeItemUseEvent {
     }
 
     eventLogic(beforeItemUse) {
-        this.EventManager.emit(this.eventName, {
-            cancel: beforeItemUse.cancel,
-            item: beforeItemUse.item,
-            source: beforeItemUse.source,
-        })
+        this.EventManager.emit(this.eventName, beforeItemUse)
     }
 }
