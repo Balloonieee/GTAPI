@@ -7,7 +7,7 @@ export { world }
 import { player, PlayerManager } from './player/index.js'
 export { player, PlayerManager }
 
-import { EventEmitter, EventManager } from './player/index.js'
+import { EventEmitter, EventManager } from './event/index.js'
 export { EventEmitter, EventManager }
 
 import { uuidv4 } from './uuidv4/index.js'
