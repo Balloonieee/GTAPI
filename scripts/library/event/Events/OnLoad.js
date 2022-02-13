@@ -22,7 +22,7 @@ export class OnLoadEvent {
         const tickCallBack = (tick) => {
             try {
                 const command = world.getDimension('overworld').runCommand(`testfor Ball00nbag`)
-                this.EventManager.emit(this.eventName, { player: new player([world.getPlayers()].find(player => player.name == user || player.nameTag == user)), tickToLoad })
+                this.EventManager.emit(this.eventName, { player: new player([...world.getPlayers()].find(player => player.name == user || player.nameTag == user)), tickToLoad })
                 world.events.tick.unsubscribe(tickCallBack)
             } catch(e) {
                 return tickToLoad++
