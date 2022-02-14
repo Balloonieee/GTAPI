@@ -15,7 +15,7 @@ export class OnJoinEvent {
         world.events[this.eventName].unsubscribe(this.event)
     }
     
-    eventLogic(joinData) {
+    eventLogic(joinData) {   
         this.EventManager.emit(this.eventName, { player: new player(joinData.player) })
     }
 }
