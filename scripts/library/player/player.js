@@ -90,7 +90,10 @@ export class player {
 			this.MPlayer.teleportFacing(new Location(locationX, locationY, locationZ), world.getDimension(dimension), new Location(facingLocationX, facingLocationY, facingLocationZ))
 		}
 	}
-
+    
+    kill() {
+        this.MPlayer.kill() // add respawn location later
+    }
 	kick(reason = 'you have been kicked', administartor = 'server') {
 		const success = this.runCommand(`kick ${this.getNameTag()} reason: ${reason}\nadministartor: ${administartor.toString()}`).error
 		if(!success) throw new Error(`could not kick ${this.getNameTag()}`)

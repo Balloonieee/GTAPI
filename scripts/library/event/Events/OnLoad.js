@@ -2,33 +2,36 @@ import { world } from 'mojang-minecraft'
 import { player } from '../../player/index.js'
 
 export class OnLoadEvent {
-    constructor(EventManager) {
-        this.EventManager = EventManager
-        this.eventName = 'playerLoad'
-    }
-    
-    on() {
-        this.event = world.events.playerJoin.subscribe(JoinData => this.eventLogic(JoinData))
-    }  
-    
-    off() {
-        world.events.playerJoin.unsubscribe(this.event)
-    }
-    
-    eventLogic(joinData) {
-        let tickToLoad = 0
-        const user = joinData.player.nameTag ?? joinData.player.name
+	constructor(EventManager) {
+		this.EventManager = EventManager
+		this.eventName = 'playerLoad'
+	}
 
-        const tickCallBack = (tick) => {
-            try {
-                const command = world.getDimension('overworld').runCommand(`testfor Ball00nbag`)
-                this.EventManager.emit(this.eventName, { player: new player([...world.getPlayers()].find(player => player.name == user || player.nameTag == user)), tickToLoad })
-                world.events.tick.unsubscribe(tickCallBack)
-            } catch(e) {
-                return tickToLoad++
-            }
-        }
-        
-        world.events.tick.subscribe(tickCallBack)
-    }
+	on() {
+		this.event = this.EventManager.on('playerJoin', (joinData) => this.eventLogic(joinData))
+	}
+
+	off() {
+		this.EventManager.removeListener('playerJoin', this.event)
+	}
+
+	eventLogic(joinData) {
+		let tickToLoad = 0
+		const user = joinData.player.getNameTag() ?? joinData.player.getName()
+
+		const tickCallBack = (tick) => {
+			try {
+				const command = world.getDimension('overworld').runCommand(`testfor "${user}"`)
+				this.EventManager.emit(this.eventName, {
+					player: new player([...world.getPlayers()].find(player => player.name == user || player.nameTag == user)),
+					tickToLoad
+				})
+				this.EventManager.removeListener('tick', tickCallBack)
+			} catch (e) {
+				return tickToLoad++
+			}
+		}
+
+		this.EventManager.on('tick', tickCallBack)
+	}
 }

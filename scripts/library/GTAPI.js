@@ -15,3 +15,7 @@ export { uuidv4 }
 
 import { database } from './database/index.js'
 export { database }
+
+import { Dimension } from './dimension/index.js'
+export { Dimension }
+//add dimension manager
